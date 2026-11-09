@@ -74,6 +74,14 @@ description='''${mod_description}'''
     ordering="NONE"
     side="BOTH"
 
+# Dependency on Curios, required by Goety
+[[dependencies.${mod_id}]]
+    modId="curios"
+    mandatory=true
+    versionRange="[5.14.1,)"
+    ordering="NONE"
+    side="BOTH"
+
 # Mixin configuration
 [[mixins]]
     config="mixins.goety_focus_fix.json"
