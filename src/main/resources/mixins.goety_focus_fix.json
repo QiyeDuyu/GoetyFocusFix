@@ -1,0 +1,13 @@
+{
+    "required": true,
+    "package": "com.goety.focusfix.mixin",
+    "compatibilityLevel": "JAVA_17",
+    "minVersion": "0.8.5",
+    "refmap": "mixins.goety_focus_fix.refmap.json",
+    "mixins": [
+        "LaunchSpellMixin"
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}
