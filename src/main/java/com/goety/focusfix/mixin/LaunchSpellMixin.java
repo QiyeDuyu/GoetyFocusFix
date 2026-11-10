@@ -3,9 +3,11 @@ package com.goety.focusfix.mixin;
 import com.Polarice3.Goety.common.magic.Spell;
 import com.Polarice3.Goety.common.magic.SpellStat;
 import com.Polarice3.Goety.common.magic.spells.wind.LaunchSpell;
+import com.Polarice3.Goety.init.ModSounds;
 import com.Polarice3.Goety.utils.WandUtil;
 import com.mojang.logging.LogUtils;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.Vec3;
@@ -21,9 +23,9 @@ public abstract class LaunchSpellMixin {
 
     private static final Logger LOGGER = LogUtils.getLogger();
 
-    @Inject(method = "defaultCastDuration", at = @At("HEAD"), cancellable = true, remap = false)
-    private void goety_revertCastDuration(CallbackInfoReturnable<Integer> cir) {
-        cir.setReturnValue(0);
+    @Inject(method = "CastingSound", at = @At("HEAD"), cancellable = true, remap = false)
+    private void goety_revertCastingSound(CallbackInfoReturnable<SoundEvent> cir) {
+        cir.setReturnValue(ModSounds.WIND.get());
     }
 
     @Inject(method = "SpellResult", at = @At("HEAD"), cancellable = true, remap = false)
