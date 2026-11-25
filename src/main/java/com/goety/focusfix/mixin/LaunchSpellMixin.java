@@ -48,4 +48,14 @@ public abstract class LaunchSpellMixin {
         ((Spell) (Object) this).playSound(level, caster, 2.0F, 1.0F);
         ci.cancel();
     }
+
+    @Inject(method = "defaultSpellCooldown", at = @At("HEAD"), cancellable = true, remap = false)
+    private void goety_revertCooldown(CallbackInfoReturnable<Integer> cir) {
+        cir.setReturnValue(0);
+    }
+
+    @Inject(method = "defaultCastDuration", at = @At("HEAD"), cancellable = true, remap = false)
+    private void goety_revertCastDuration(CallbackInfoReturnable<Integer> cir) {
+        cir.setReturnValue(0);
+    }
 }
